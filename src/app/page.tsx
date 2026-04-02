@@ -1,4 +1,5 @@
 import Link from "next/link";
+import WaitlistForm from "@/components/WaitlistForm";
 
 /* ────────────────── SVG Icons ────────────────── */
 
@@ -331,20 +332,9 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-white">Be the First to Explore</h2>
           <p className="mt-4 text-navy-200">Unfold Trails is launching soon. Join the waitlist and be among the first to walk, ride, and explore.</p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="your@email.com"
-              className="flex-1 rounded-full border border-navy-500 bg-navy-800/50 px-5 py-3.5 text-sm text-white placeholder:text-navy-400 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500/50 transition-colors"
-            />
-            <button
-              type="button"
-              className="rounded-full bg-purple-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25 hover:bg-purple-500 transition-colors whitespace-nowrap"
-            >
-              Join Waitlist
-            </button>
+          <div className="mt-8">
+            <WaitlistForm />
           </div>
-          <p className="mt-4 text-xs text-navy-400">No spam. We&apos;ll only email you when we launch.</p>
 
           <div className="mt-10 flex justify-center gap-4">
             <div className="flex items-center gap-2 rounded-xl border border-navy-600 bg-navy-800/50 px-5 py-3 text-sm text-navy-200 hover:border-navy-500 transition-colors">
