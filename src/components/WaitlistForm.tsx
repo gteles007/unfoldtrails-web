@@ -13,17 +13,23 @@ export default function WaitlistForm() {
 
     setStatus("loading");
 
-    const { error } = await supabase.from("waitlist").insert({ email: email.trim().toLowerCase() });
+    try {
+      const { error } = await supabase.from("waitlist").insert({ email: email.trim().toLowerCase() });
 
-    if (error) {
-      if (error.code === "23505") {
-        setStatus("duplicate");
+      if (error) {
+        console.error("Waitlist insert error:", error.code, error.message);
+        if (error.code === "23505") {
+          setStatus("duplicate");
+        } else {
+          setStatus("error");
+        }
       } else {
-        setStatus("error");
+        setStatus("success");
+        setEmail("");
       }
-    } else {
-      setStatus("success");
-      setEmail("");
+    } catch (err) {
+      console.error("Waitlist network error:", err);
+      setStatus("error");
     }
   }
 
