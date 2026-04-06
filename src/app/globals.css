@@ -96,6 +96,26 @@ html {
 .stagger-5 { animation-delay: 0.5s; }
 .stagger-6 { animation-delay: 0.6s; }
 
+/* Scroll reveal */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-hidden {
+  opacity: 0;
+}
+
+.scroll-visible {
+  animation: reveal-up 0.7s ease-out forwards;
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2) 30%, rgba(139, 92, 246, 0.2) 70%, transparent);
+}
+
 /* Glass card effect */
 .glass-card {
   background: rgba(20, 20, 40, 0.6);
@@ -107,3 +127,4 @@ html {
   border-color: rgba(139, 92, 246, 0.35);
   background: rgba(25, 25, 50, 0.7);
 }
+

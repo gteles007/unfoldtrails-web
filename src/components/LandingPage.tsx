@@ -1,9 +1,27 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useLanguage } from "./LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
 import WaitlistForm from "./WaitlistForm";
+import WaitlistCounter from "./WaitlistCounter";
+
+function useScrollReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.15) {
+  const ref = useRef<T>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.unobserve(el); } },
+      { threshold },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return { ref, visible };
+}
 
 /* ────────────────── SVG Icons ────────────────── */
 
@@ -58,6 +76,12 @@ function PlayStoreIcon() {
 
 export default function LandingPage() {
   const { t } = useLanguage();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const featuresReveal = useScrollReveal(0.05);
+  const modesReveal = useScrollReveal(0.05);
+  const howReveal = useScrollReveal(0.05);
+  const waitlistReveal = useScrollReveal(0.05);
 
   const features = [
     { icon: <MapPinIcon />, title: t.featGps, desc: t.featGpsDesc },
@@ -93,11 +117,31 @@ export default function LandingPage() {
             </a>
             <LanguageSwitcher />
           </div>
-          {/* Mobile language switcher */}
-          <div className="md:hidden">
+          <div className="flex md:hidden items-center gap-3">
             <LanguageSwitcher />
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="flex items-center justify-center w-10 h-10 rounded-lg border border-navy-600 bg-navy-800/50 text-navy-200 hover:text-white transition-colors"
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? (
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+              ) : (
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg>
+              )}
+            </button>
           </div>
         </div>
+        {menuOpen && (
+          <div className="md:hidden border-t border-navy-700/50 bg-navy-900/95 backdrop-blur-lg px-6 py-4 flex flex-col gap-3 text-sm">
+            <a href="#features" onClick={() => setMenuOpen(false)} className="text-navy-200 hover:text-white transition-colors py-2">{t.navFeatures}</a>
+            <a href="#modes" onClick={() => setMenuOpen(false)} className="text-navy-200 hover:text-white transition-colors py-2">{t.navModes}</a>
+            <a href="#how-it-works" onClick={() => setMenuOpen(false)} className="text-navy-200 hover:text-white transition-colors py-2">{t.navHowItWorks}</a>
+            <a href="#waitlist" onClick={() => setMenuOpen(false)} className="rounded-full bg-purple-600 px-5 py-2.5 text-white text-sm font-medium hover:bg-purple-500 transition-colors text-center mt-1">
+              {t.navJoinWaitlist}
+            </a>
+          </div>
+        )}
       </nav>
 
       {/* Hero */}
@@ -158,8 +202,10 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <div className="section-divider mx-auto max-w-4xl" />
+
       {/* Features */}
-      <section id="features" className="relative py-16 md:py-24 px-6">
+      <section id="features" ref={featuresReveal.ref} className={`relative py-16 md:py-24 px-6 ${featuresReveal.visible ? "scroll-visible" : "scroll-hidden"}`}>
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <p className="text-purple-400 text-sm font-medium tracking-widest uppercase mb-3">{t.featuresLabel}</p>
@@ -178,8 +224,10 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <div className="section-divider mx-auto max-w-4xl" />
+
       {/* Dual Mode */}
-      <section id="modes" className="relative py-16 md:py-24 px-6">
+      <section id="modes" ref={modesReveal.ref} className={`relative py-16 md:py-24 px-6 ${modesReveal.visible ? "scroll-visible" : "scroll-hidden"}`}>
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-purple-700/5 blur-[100px]" />
         </div>
@@ -228,8 +276,10 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <div className="section-divider mx-auto max-w-4xl" />
+
       {/* How It Works */}
-      <section id="how-it-works" className="relative py-16 md:py-24 px-6">
+      <section id="how-it-works" ref={howReveal.ref} className={`relative py-16 md:py-24 px-6 ${howReveal.visible ? "scroll-visible" : "scroll-hidden"}`}>
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-16">
             <p className="text-purple-400 text-sm font-medium tracking-widest uppercase mb-3">{t.howItWorksLabel}</p>
@@ -249,8 +299,10 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <div className="section-divider mx-auto max-w-4xl" />
+
       {/* Waitlist */}
-      <section id="waitlist" className="relative py-16 md:py-24 px-6">
+      <section id="waitlist" ref={waitlistReveal.ref} className={`relative py-16 md:py-24 px-6 ${waitlistReveal.visible ? "scroll-visible" : "scroll-hidden"}`}>
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-purple-600/8 blur-[120px]" />
         </div>
@@ -262,6 +314,8 @@ export default function LandingPage() {
           <div className="mt-8">
             <WaitlistForm />
           </div>
+
+          <WaitlistCounter />
 
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
             <div className="flex items-center justify-center gap-2 rounded-xl border border-navy-600 bg-navy-800/50 px-5 py-3 text-sm text-navy-200 hover:border-navy-500 transition-colors">

@@ -21,3 +21,9 @@ export async function joinWaitlist(email: string): Promise<{ status: "success" |
 
   return { status: "success" };
 }
+
+export async function getWaitlistCount(): Promise<number> {
+  const { data, error } = await supabase.rpc("waitlist_count");
+  if (error || data === null) return 0;
+  return data;
+}

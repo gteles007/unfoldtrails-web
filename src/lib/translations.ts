@@ -88,6 +88,7 @@ const translations = {
     comingSoonOn: "Coming soon on",
     appStore: "App Store",
     googlePlay: "Google Play",
+    waitlistCounter: "{count} explorers already signed up",
     // Footer
     footerRights: "All rights reserved.",
   },
@@ -162,6 +163,7 @@ const translations = {
     comingSoonOn: "Próximamente en",
     appStore: "App Store",
     googlePlay: "Google Play",
+    waitlistCounter: "{count} exploradores ya se inscribieron",
     footerRights: "Todos los derechos reservados.",
   },
   pt: {
@@ -235,6 +237,7 @@ const translations = {
     comingSoonOn: "Em breve na",
     appStore: "App Store",
     googlePlay: "Google Play",
+    waitlistCounter: "{count} exploradores já se inscreveram",
     footerRights: "Todos os direitos reservados.",
   },
   fr: {
@@ -308,6 +311,7 @@ const translations = {
     comingSoonOn: "Bientôt sur",
     appStore: "App Store",
     googlePlay: "Google Play",
+    waitlistCounter: "{count} explorateurs déjà inscrits",
     footerRights: "Tous droits réservés.",
   },
   de: {
@@ -381,6 +385,7 @@ const translations = {
     comingSoonOn: "Bald verfügbar im",
     appStore: "App Store",
     googlePlay: "Google Play",
+    waitlistCounter: "{count} Entdecker haben sich bereits angemeldet",
     footerRights: "Alle Rechte vorbehalten.",
   },
   ko: {
@@ -454,6 +459,7 @@ const translations = {
     comingSoonOn: "곧 출시",
     appStore: "App Store",
     googlePlay: "Google Play",
+    waitlistCounter: "{count}명의 탐험가가 이미 등록했습니다",
     footerRights: "모든 권리 보유.",
   },
 } as const;
