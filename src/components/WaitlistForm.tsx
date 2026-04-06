@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { joinWaitlist } from "@/app/actions";
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState("");
@@ -14,21 +14,10 @@ export default function WaitlistForm() {
     setStatus("loading");
 
     try {
-      const { error } = await supabase.from("waitlist").insert({ email: email.trim().toLowerCase() });
-
-      if (error) {
-        console.error("Waitlist insert error:", error.code, error.message);
-        if (error.code === "23505") {
-          setStatus("duplicate");
-        } else {
-          setStatus("error");
-        }
-      } else {
-        setStatus("success");
-        setEmail("");
-      }
-    } catch (err) {
-      console.error("Waitlist network error:", err);
+      const result = await joinWaitlist(email);
+      if (result.status === "success") setEmail("");
+      setStatus(result.status);
+    } catch {
       setStatus("error");
     }
   }
