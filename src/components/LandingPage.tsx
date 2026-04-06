@@ -249,23 +249,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-16 px-6 border-y border-navy-700/30">
-        <div className="mx-auto max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { value: "2", label: t.statModes },
-            { value: "28+", label: t.statTables },
-            { value: "6+", label: t.statChallenges },
-            { value: "780km", label: t.statCamino },
-          ].map((s) => (
-            <div key={s.label}>
-              <p className="text-3xl md:text-4xl font-bold text-purple-400">{s.value}</p>
-              <p className="mt-1 text-sm text-navy-300">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Waitlist */}
       <section id="waitlist" className="relative py-24 md:py-32 px-6">
         <div className="pointer-events-none absolute inset-0">
