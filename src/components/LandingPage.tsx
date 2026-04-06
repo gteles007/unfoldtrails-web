@@ -146,14 +146,14 @@ export default function LandingPage() {
             </a>
           </div>
 
-          <div className="mt-8 flex items-center gap-4 text-navy-400 text-xs opacity-0 animate-fade-in stagger-5">
+          <div className="mt-8 flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-navy-400 text-xs opacity-0 animate-fade-in stagger-5">
             <span className="flex items-center gap-1.5"><AppleIcon /> {t.appStoreSoon}</span>
-            <span className="text-navy-600">|</span>
+            <span className="hidden sm:inline text-navy-600">|</span>
             <span className="flex items-center gap-1.5"><PlayStoreIcon /> {t.googlePlaySoon}</span>
           </div>
         </div>
 
-        <div className="absolute bottom-8 flex flex-col items-center gap-2 text-navy-400 animate-bounce">
+        <div className="absolute bottom-4 sm:bottom-8 flex flex-col items-center gap-2 text-navy-400 animate-bounce">
           <ChevronDownIcon />
         </div>
       </section>
@@ -263,15 +263,15 @@ export default function LandingPage() {
             <WaitlistForm />
           </div>
 
-          <div className="mt-10 flex justify-center gap-4">
-            <div className="flex items-center gap-2 rounded-xl border border-navy-600 bg-navy-800/50 px-5 py-3 text-sm text-navy-200 hover:border-navy-500 transition-colors">
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            <div className="flex items-center justify-center gap-2 rounded-xl border border-navy-600 bg-navy-800/50 px-5 py-3 text-sm text-navy-200 hover:border-navy-500 transition-colors">
               <AppleIcon />
               <div className="text-left">
                 <p className="text-[10px] text-navy-400 leading-none">{t.comingSoonOn}</p>
                 <p className="font-medium text-white">{t.appStore}</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 rounded-xl border border-navy-600 bg-navy-800/50 px-5 py-3 text-sm text-navy-200 hover:border-navy-500 transition-colors">
+            <div className="flex items-center justify-center gap-2 rounded-xl border border-navy-600 bg-navy-800/50 px-5 py-3 text-sm text-navy-200 hover:border-navy-500 transition-colors">
               <PlayStoreIcon />
               <div className="text-left">
                 <p className="text-[10px] text-navy-400 leading-none">{t.comingSoonOn}</p>
