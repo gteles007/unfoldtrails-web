@@ -76,7 +76,7 @@ export default function PrivacyPolicy() {
         <li><strong>Right to withdraw consent:</strong> Withdraw your consent at any time where processing is based on consent.</li>
       </ul>
       <p>
-        To exercise any of these rights, please contact us at <a href="mailto:privacy@unfoldtrails.com">privacy@unfoldtrails.com</a>.
+        To exercise any of these rights, please contact us at <a href="mailto:privacy@unworried.co.uk">privacy@unworried.co.uk</a>.
       </p>
 
       <h2>8. Data Security</h2>
@@ -106,7 +106,7 @@ export default function PrivacyPolicy() {
       <p>
         Unworried Ventures LTD<br />
         124 City Road, London, England, EC1V 2NX, United Kingdom<br />
-        Email: <a href="mailto:privacy@unfoldtrails.com">privacy@unfoldtrails.com</a>
+        Email: <a href="mailto:privacy@unworried.co.uk">privacy@unworried.co.uk</a>
       </p>
     </LegalLayout>
   );

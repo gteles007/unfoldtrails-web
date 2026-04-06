@@ -84,7 +84,7 @@ export default function CookiePolicy() {
       <p>
         Unworried Ventures LTD<br />
         124 City Road, London, England, EC1V 2NX, United Kingdom<br />
-        Email: <a href="mailto:privacy@unfoldtrails.com">privacy@unfoldtrails.com</a>
+        Email: <a href="mailto:privacy@unworried.co.uk">privacy@unworried.co.uk</a>
       </p>
     </LegalLayout>
   );
