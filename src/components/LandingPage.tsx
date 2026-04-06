@@ -159,7 +159,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="relative py-24 md:py-32 px-6">
+      <section id="features" className="relative py-16 md:py-24 px-6">
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <p className="text-purple-400 text-sm font-medium tracking-widest uppercase mb-3">{t.featuresLabel}</p>
@@ -179,7 +179,7 @@ export default function LandingPage() {
       </section>
 
       {/* Dual Mode */}
-      <section id="modes" className="relative py-24 md:py-32 px-6">
+      <section id="modes" className="relative py-16 md:py-24 px-6">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-purple-700/5 blur-[100px]" />
         </div>
@@ -229,7 +229,7 @@ export default function LandingPage() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="relative py-24 md:py-32 px-6">
+      <section id="how-it-works" className="relative py-16 md:py-24 px-6">
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-16">
             <p className="text-purple-400 text-sm font-medium tracking-widest uppercase mb-3">{t.howItWorksLabel}</p>
@@ -250,7 +250,7 @@ export default function LandingPage() {
       </section>
 
       {/* Waitlist */}
-      <section id="waitlist" className="relative py-24 md:py-32 px-6">
+      <section id="waitlist" className="relative py-16 md:py-24 px-6">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-purple-600/8 blur-[120px]" />
         </div>
