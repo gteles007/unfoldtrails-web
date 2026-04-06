@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { joinWaitlist } from "@/app/actions";
+import { useLanguage } from "./LanguageProvider";
 
 export default function WaitlistForm() {
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "duplicate">("idle");
 
@@ -26,14 +28,14 @@ export default function WaitlistForm() {
     <div>
       {status === "success" ? (
         <div className="rounded-full border border-green-500/30 bg-green-500/10 px-6 py-3.5 text-sm text-green-300 text-center">
-          You&apos;re on the list! We&apos;ll notify you when we launch.
+          {t.waitlistSuccess}
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
           <input
             type="email"
             required
-            placeholder="your@email.com"
+            placeholder={t.waitlistPlaceholder}
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -46,19 +48,19 @@ export default function WaitlistForm() {
             disabled={status === "loading"}
             className="rounded-full bg-purple-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25 hover:bg-purple-500 transition-colors whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {status === "loading" ? "Joining..." : "Join Waitlist"}
+            {status === "loading" ? t.waitlistJoining : t.waitlistButton}
           </button>
         </form>
       )}
 
       {status === "duplicate" && (
-        <p className="mt-3 text-xs text-yellow-400">You&apos;re already on the waitlist!</p>
+        <p className="mt-3 text-xs text-yellow-400">{t.waitlistDuplicate}</p>
       )}
       {status === "error" && (
-        <p className="mt-3 text-xs text-red-400">Something went wrong. Please try again.</p>
+        <p className="mt-3 text-xs text-red-400">{t.waitlistError}</p>
       )}
       {status !== "success" && (
-        <p className="mt-4 text-xs text-navy-400">No spam. We&apos;ll only email you when we launch.</p>
+        <p className="mt-4 text-xs text-navy-400">{t.waitlistNoSpam}</p>
       )}
     </div>
   );
