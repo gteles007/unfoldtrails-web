@@ -90,6 +90,9 @@ const translations = {
     googlePlay: "Google Play",
     waitlistCounter: "{count} explorers already signed up",
     // Footer
+    footerPrivacy: "Privacy Policy",
+    footerTerms: "Terms of Service",
+    footerCookies: "Cookie Policy",
     footerRights: "All rights reserved.",
   },
   es: {
@@ -164,6 +167,9 @@ const translations = {
     appStore: "App Store",
     googlePlay: "Google Play",
     waitlistCounter: "{count} exploradores ya se inscribieron",
+    footerPrivacy: "Politica de Privacidad",
+    footerTerms: "Terminos de Servicio",
+    footerCookies: "Politica de Cookies",
     footerRights: "Todos los derechos reservados.",
   },
   pt: {
@@ -238,6 +244,9 @@ const translations = {
     appStore: "App Store",
     googlePlay: "Google Play",
     waitlistCounter: "{count} exploradores já se inscreveram",
+    footerPrivacy: "Politica de Privacidade",
+    footerTerms: "Termos de Serviço",
+    footerCookies: "Politica de Cookies",
     footerRights: "Todos os direitos reservados.",
   },
   fr: {
@@ -312,6 +321,9 @@ const translations = {
     appStore: "App Store",
     googlePlay: "Google Play",
     waitlistCounter: "{count} explorateurs déjà inscrits",
+    footerPrivacy: "Politique de Confidentialité",
+    footerTerms: "Conditions d'Utilisation",
+    footerCookies: "Politique de Cookies",
     footerRights: "Tous droits réservés.",
   },
   de: {
@@ -386,6 +398,9 @@ const translations = {
     appStore: "App Store",
     googlePlay: "Google Play",
     waitlistCounter: "{count} Entdecker haben sich bereits angemeldet",
+    footerPrivacy: "Datenschutzrichtlinie",
+    footerTerms: "Nutzungsbedingungen",
+    footerCookies: "Cookie-Richtlinie",
     footerRights: "Alle Rechte vorbehalten.",
   },
   ko: {
@@ -460,6 +475,9 @@ const translations = {
     appStore: "App Store",
     googlePlay: "Google Play",
     waitlistCounter: "{count}명의 탐험가가 이미 등록했습니다",
+    footerPrivacy: "개인정보 처리방침",
+    footerTerms: "이용약관",
+    footerCookies: "쿠키 정책",
     footerRights: "모든 권리 보유.",
   },
 } as const;

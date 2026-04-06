@@ -338,12 +338,17 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="border-t border-navy-700/30 py-12 px-6">
-        <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mx-auto max-w-6xl flex flex-col items-center gap-6">
           <div className="flex items-center gap-2">
             <LogoIcon className="w-6 h-6" />
             <span className="text-xs font-semibold tracking-[0.2em] text-navy-200 uppercase">Unfold Trails</span>
           </div>
           <p className="text-xs tracking-[0.2em] text-navy-400 uppercase">{t.tagline}</p>
+          <div className="flex flex-wrap justify-center gap-4 text-xs text-navy-500">
+            <Link href="/privacy" className="hover:text-navy-300 transition-colors">{t.footerPrivacy}</Link>
+            <Link href="/terms" className="hover:text-navy-300 transition-colors">{t.footerTerms}</Link>
+            <Link href="/cookies" className="hover:text-navy-300 transition-colors">{t.footerCookies}</Link>
+          </div>
           <p className="text-xs text-navy-500">&copy; {new Date().getFullYear()} Unfold Trails. {t.footerRights}</p>
         </div>
       </footer>
